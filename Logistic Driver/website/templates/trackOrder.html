@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block title %}Track Order {% endblock %}
+
+{% block content %}
+
+<div class="background2">
+
+{% include 'dispmsg.html' %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+        <div class="mapBox">
+            <h4 class="display-4" id="headings">Order ID: {{ order.id }}</h4><br>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="Details" id="headings" class="headings">Details</label>
+                    <p class="text-center" id="headings" >{{ order.details }}</p>
+                </div>
+                <div class="col-md-6">
+                    <label for="origin" id="headings" class="headings">Place of Origin</label>
+                    <p class="text-center" id="headings">{{ order.origin }}</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="Final" id="headings" class="headings">Final Destination</label>
+                    <p class="text-center" id="headings" >{{ order.finalStation }}</p>
+                </div>
+                <div class="col-md-6">
+                    <label for="Current" id="headings" class="headings">Current Location</label>
+                    <p class="text-center" id="headings">{{ cp.location }}</p>
+                </div>
+            </div>
+        </div>
+        </div>
+</div>
+ </div>
+ {% endblock %}
+
+ {% block footer %}
+    {% include 'footer.html' %}
+{% endblock %}

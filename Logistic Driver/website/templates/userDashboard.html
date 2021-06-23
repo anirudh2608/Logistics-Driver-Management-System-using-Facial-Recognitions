@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% block title %}Customer Dashboard {% endblock %}
+
+{% block content %}
+<div class="background2">
+{% include 'dispmsg.html' %}
+<div class="container">
+<div class="container-fluid">
+    <div id="first-row">
+        <br>
+        <br>
+        <br>
+        <br>
+        <div id="banner-content-mid" class="mx-auto d-block" style="font-size: calc(5px + 1vw);">
+           
+            <h4 class="display-4" id="headings">Personal Details</h4><br>
+            <div class="row">
+            <div class="col-sm">
+                <label for="Name" id="headings" class="headings">Name</label>
+                <p class="text-center" id="headings" >{{session['name']}}</p>
+            </div>
+            <div class="col-sm">
+                <label for="Email" id="headings" class="headings">Email</label>
+                <p class="text-center" id="headings">{{session['email']}}</p>
+            </div>
+            <div class="col-sm">
+                <label for="Address" id="headings" class="headings">Address</label>
+                <p class="text-center" id="headings">{{customer.address}}</p>
+            </div>
+            </div>
+            <div class="row">
+                <div class="col-sm">
+                    <label for="Contact" id="headings" class="headings">Contact</label>
+                    <p class="text-center" id="headings" >{{customer.contact}}</p>
+                </div>
+                <div class="col-sm">
+                    <label for="Role" id="headings" class="headings">Role</label>
+                    <p class="text-center" id="headings">Customer</p>
+                </div>
+                </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid" id="banner-content-bottom" style="width: auto;">
+    <div class="row">
+        <div class="col-md-4">
+            <a class="hover" style="text-decoration: none; " href="/userOrder">
+            <div class="box-white">
+                <img class="img-fluid" src="static/images/ordermanager.png">
+                <p class="text-center" id="headings" style="font-size: calc(4px + 1vw);">Manage Orders</p>
+            </div>    
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a class="hover" style="text-decoration: none; " href="/changeAddress">
+            <div class="box-white">
+                <img src="static/images/loc.png">
+                <p class="text-center" id="headings" style="font-size: calc(4px + 1vw);">Change Address</p>
+            </div>
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a class="hover" style="text-decoration: none; " href="/changePass">
+            <div class="box-white">
+                <img src="static/images/setting.png">
+                <p class="text-center" id="headings" style="font-size: calc(4px + 1vw);">Change Password</p>
+            </div>
+            </a>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+</div>
+</div>
+</div>
+
+{% endblock %}
+
+{% block footer %}
+    {% include 'footer.html' %}
+{% endblock %}

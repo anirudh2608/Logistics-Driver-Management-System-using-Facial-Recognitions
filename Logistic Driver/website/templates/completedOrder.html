@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title %}Completed Orders {% endblock %}
+
+{% block content %}
+
+<div class="background3">
+
+{% include 'dispmsg.html' %}
+
+<div class="container-fluid">
+    <div class="mx-auto d-block">
+        <div class="displayBox">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Details</th>
+                        <th scope="col">Origin</th>
+                        <th scope="col">Final Station</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for order in orders %}
+                    {% if order.status == "Delivered" %}
+                    <tr>
+                        <th scope="row">{{ order.id }}</th>
+                        <td>{{ order.details }}</td>
+                        <td>{{ order.origin }}</td>
+                        <td>{{ order.finalStation }}</td>
+                        {% if order.status == "Delivered" %}
+                        <td style="color: green;">{{ order.status }}</td>
+                        {% endif %}
+                    </tr>
+                    {% endif %}
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</div>
+
+{% endblock %}
+
+{% block footer %}
+    {% include 'footer.html' %}
+{% endblock %}

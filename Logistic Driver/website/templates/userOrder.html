@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block title %}Orders {% endblock %}
+
+{% block content %}
+
+<div class="background3">
+
+{% include 'dispmsg.html' %}
+
+<div class="container-fluid">
+    <div class="mx-auto d-block">
+        <div class="displayBox">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Details</th>
+                        <th scope="col">Date of Order</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Decision</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for order in orders %}
+                    
+                    <tr>
+                        <th scope="row">{{ order.id }}</th>
+                        <td>{{ order.details }}</td>
+                        <td>{{ order.dateOfOrder }}</td>
+                        {% if order.status == "Delivered" %}
+                            <td style="color: green;">{{ order.status }}</td>
+                        {% elif order.status == "Pending" %}
+                        <td style="color: red;">{{ order.status }}</td>
+                        {% elif order.status == "Enroute" %}
+                        <td style="color:purple;">{{ order.status }}</td>
+                        {% endif %}
+                        <td>
+                            <button type="button" class="btn btn-primary"  style="font-size: 23px;" onclick="trackOrder({{ order.id }})" >Track</button>
+                        </td>
+                    </tr>
+                    
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</div>
+
+{% endblock %}
+
+{% block footer %}
+    {% include 'footer.html' %}
+{% endblock %}

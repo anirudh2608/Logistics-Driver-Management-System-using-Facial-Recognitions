@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% block title %}Change Password {% endblock %}
+
+{% block content %}
+
+<div class="background3">
+
+{% include 'dispmsg.html' %}
+
+<div class="container-fluid">
+     
+    <div class="loginBox first-row">
+    <div class="row">
+        <div class="panel panel-primary" >
+            <div class="panel-heading">
+                <h4 class="display-2" id="headings">Change Password</h4>
+            </div>
+            <div class="panel-body">
+                <form method="POST">
+
+                    <div class="form-group">
+                        <label for="Old Password" id="headings">Old Password</label>
+                        <input
+                            type="password"
+                            class="form-control"
+                            id="Opassword"
+                            name="oldPassword"
+                            placeholder="Enter old password" 
+                            required
+                        /> 
+                        </div>
+                        
+                        <div class="form-group">
+                        <label for="New Password" id="headings">New Password</label>
+                        <input
+                            type="password"
+                            class="form-control"
+                            id="Npassword"
+                            name="newPassword"
+                            placeholder="Enter new password"
+                            required
+                        />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Confirm New Password" id="headings">Confirm New Password</label>
+                            <input
+                                type="password"
+                                class="form-control"
+                                id="CNpassword"
+                                name="confirmNewPassword"
+                                placeholder="Enter new password"
+                                required
+                            />
+                        </div>
+                        <br />
+                    <button type="submit" style="width: 100%;" class="btn btn-primary" >Change Password</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>    
+</div>
+
+{% endblock %}
+
+{% block footer %}
+    {% include 'footer.html' %}
+{% endblock %}

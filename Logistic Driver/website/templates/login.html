@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% block title %} Login {% endblock %}
+
+{% block content %}
+
+<div class="background4">
+
+{% include 'dispmsg.html' %}
+
+    <div class="container-fluid">
+     
+        <div class="loginBox first-row">
+        <div class="row">
+            <div class="panel panel-primary" >
+                <div class="panel-heading">
+                    <h4 class="display-2" id="headings">LOGIN</h4>
+                </div>
+                <div class="panel-body">
+                    <p class="text-justify" id="headings"><i>One stop login for everyone</i><p>
+                <form method="POST">
+                    <p class="text" id="headings">Who are you?</p>
+                        <div class="form-check form-check-inline">
+                        <label for="Customer" id="headings">Customer</label>
+                        <input
+                            type="radio"
+                            class="form-check-input"
+                            id="customer"
+                            name="user"
+                            value="customer" 
+                            checked="checked"
+                        /> 
+                        </div>
+                        <div class="form-check form-check-inline">
+                        <label for="Driver" id="headings">Driver</label>
+                        <input
+                            type="radio"
+                            class="form-check-input"
+                            id="driver"
+                            name="user"
+                            value="driver" 
+                        /> 
+                         </div>
+                        <div class="form-check form-check-inline">
+                        <label for="Admin" id="headings">Admin</label>
+                        <input
+                            type="radio"
+                            class="form-check-input"
+                            id="admin"
+                            name="user"
+                            value="admin" 
+                        /> 
+                        </div>
+                    
+                        
+                    <div class="form-group">
+                    <label for="email" id="headings">Email Address</label>
+                    <input
+                        type="email"
+                        class="form-control"
+                        id="email"
+                        name="email"
+                        placeholder="Enter email" 
+                    
+                    /> 
+                    </div>
+                    
+                    <div class="form-group">
+                    <label for="password" id="headings">Password</label>
+                    <input
+                        type="password"
+                        class="form-control"
+                        id="password"
+                        name="password"
+                        placeholder="Enter password"
+                    />
+                    </div>
+                    <br />
+                    <button type="submit" style="width: 100%;" class="btn btn-primary" >Login</button>
+                    <div class="panel-footer" id="headings"><p>Signup as a new customer <a href="/userSignUp">Here</a></p></div>
+                    <div class="panel-footer" id="headings"><p>Signup as a new driver <a href="/driverSignUp">Here</a></p></div>
+                    <!--
+                    <div class="panel-footer" id="headings"><p>Signup as a new admin <a href="/adminSignUp">Here</a></p></div>
+                    -->
+                </form>
+                
+                </div>
+            </div>
+    </div>
+</div>
+</div>
+</div>
+
+{% endblock %}
+
+{% block footer %}
+    {% include 'footer.html' %}
+{% endblock %}

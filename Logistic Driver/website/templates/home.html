@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block title %}Home {% endblock %}
+
+{% block content %}
+
+<div class="background1">
+
+{% include 'dispmsg.html' %}
+
+      <div class="container ">
+            <center>
+                  <div id="first-row">
+                        <br>
+                        <br>
+        <br>
+        <br>
+                        <div id="banner-content">
+                        <h1 style="color:white; font-family: cursive;" > There is more credit and satisfaction in being a first-rate truck driver than a tenth-rate executive</h1> <h1 style="color:white; font-family: cursive;"></h1><h1 style="color:white;font-family: cursive;">At Drivsta, we have them. </h1><br>
+            <a href="#A" >  <button style="color: black;  font-size: 20px;" type="submit" name="submit" class="btn btn-info " >  <b> Get started</b></button></a>
+                        </div>
+                  </div>
+            </center>
+      </div>
+</div>
+<a name="A"></a>
+<div class="container-fluid" style="width: auto; max-width: 95%;" >
+      <div class="row" style="margin-top: 5%; margin-bottom: 5%;">
+            <div class="col-md-4">
+            <div class="card">
+                  <img class="img-fluid card-img-top" src="static/images/customer.png">
+                  <div class="card-body">
+                  <p class="text-center" id="headings" style="font-size: 25px;">Check orders</p>
+                  <a href="/login"> <button class="btn btn-dark" style="width: 100%; font-size: 25px;" id="headings">Customer</button></a>
+                  </div>
+            </div>
+            </div>
+            <div class="col-md-4">
+            <div class="card">
+                  <img class="img-fluid card-img-top" src="static/images/driver.png">
+                  <div class="card-body">
+                  <p class="text-center" id="headings" style="font-size: 25px;">Start journey </p>
+                  <a href="/login"><button class="btn btn-dark" style="width: 100%; font-size: 25px;" id="headings" >Driver</button></a>
+                  </div>
+            </div>
+            </div>
+            <div class="col-md-4">
+            <div class="card">
+                  <img class="img-fluid card-img-top" src="static/images/Admin.png">
+                  <div class="card-body">
+                  <p class="text-center" id="headings" style="font-size: 25px;"> Admin Only</p>
+                  <a href="/login"><button class="btn btn-dark" style="width: 100%; font-size: 25px;" id="headings" >Admin</button></a>
+                  </div>
+            </div>
+            </div>
+      </div>
+
+  </div>
+   
+{% endblock %}
+
+{% block footer %}
+    {% include 'footer.html' %}
+{% endblock %}

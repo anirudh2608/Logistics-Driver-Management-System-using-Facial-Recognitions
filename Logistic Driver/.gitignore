@@ -1,0 +1,6 @@
+cropped/
+hidden/
+venv/
+.vscode/
+Face Recognition.ipynb
+.ipynb_checkpoints/

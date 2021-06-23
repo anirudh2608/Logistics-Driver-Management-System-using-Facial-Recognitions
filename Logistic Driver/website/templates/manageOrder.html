@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+{% block title %}Manage Order {% endblock %}
+
+{% block content %}
+
+<div class="background2">
+
+{% include 'dispmsg.html' %}
+<div class="container-fluid">
+  
+    <div class="mx-auto d-block">
+        <div class="displayBox">
+            <table class="table" id="headings"  style="font-size: calc(3px + 1vw);">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Details</th>
+                        <th scope="col">Truck Number</th>
+                        <th scope="col">Truck Driver</th>
+                        <th scope="col">Origin</th>
+                        <th scope="col">Final Station</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Decision</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for order in orders %}
+                    <tr>
+                        <th scope="row">{{ order.id }}</th>
+                        <td>{{ order.details }}</td>
+                        <td>{{ order.truckNumber }}</td>
+                        {% for d in driver %}
+                        {% if d.id == order.driverId %}
+                        <td>{{ d.name }}</td>
+                        {% endif %}
+                        {% endfor %}
+                        <td>{{ order.origin }}</td>
+                        <td>{{ order.finalStation }}</td>
+                        {% if order.status == "Delivered" %}
+                            <td style="color: green;">{{ order.status }}</td>
+                        {% elif order.status == "Pending" %}
+                        <td style="color: red;">{{ order.status }}</td>
+                        {% elif order.status == "Enroute" %}
+                        <td style="color:purple;">{{ order.status }}</td>
+                        {% endif %}
+                        <td>
+                            <button type="button" class="btn btn-danger"  style="font-size: calc(3px + 1vw);" onclick="deleteOrder({{ order.id }})" >Delete</button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="displayBox2">
+            <form method="POST">
+                <p class="text-center" id="headings"><i> New Order</i></p>
+                <div class="form-row">
+                <div class="col-md-4 mb-1">
+                <label for="order" id="headings" style="font-size: calc(4px + 1vw);">Order Details</label>
+                <input 
+                        type="text" 
+                        class="form-control" 
+                        name = "details"
+                        placeholder="Order Details" required>
+                </div>
+                <div class="col-md-4 mb-1">
+                <label for="truckNumber" id="headings" style="font-size: calc(4px + 1vw);">Truck Driver</label>
+                <select  
+                        class="form-control" 
+                        name = "truckId"
+                        required>
+                        {% for d in driver %}
+                        <option value="{{d.truckNumber}}">{{d.name}}</option>
+                        {% endfor %}
+                        </select>
+                </div>
+                <div class="col-md-4 mb-1">
+                <label for="customer" id="headings" style="font-size: calc(4px + 1vw);">Customer Name</label>
+                <select 
+                        class="form-control" 
+                        name = "customerId"
+                        required>
+                        {% for c in cust %}
+                        <option value="{{c.id}}">{{c.name}}</option>
+                        {% endfor %}
+                        </select>
+                </div>
+                </div>
+
+                <div class="form-row">
+                <div class="col-md-6 mb-1">
+                <label for="origin" id="headings" style="font-size: calc(4px + 1vw);">Origin</label>
+                <select
+                    class="form-control" 
+                    name = "origin"
+                    required>
+                    {% for cp in checkp %}
+                    <option value="{{cp.location}}">{{cp.location}}</option>
+                    {% endfor %}
+                    </select>
+                </div>
+                <div class="col-md-6 mb-1">
+                <label for="Final Station" id="headings" style="font-size: calc(4px + 1vw);">Final Station</label>
+                <select
+                    class="form-control" 
+                    name = "final"
+                    required>
+                    {% for cp in checkp %}
+                    <option value="{{cp.location}}">{{cp.location}}</option>
+                    {% endfor %}
+                    </select>
+                </div>
+                </div>
+                <br />
+                <div align="center">
+                  <button type="submit" class="btn btn-primary" id="headings" style="font-size: calc(3px + 1vw);">Add Order</button>
+                </div>
+              </form>
+        </div>
+    </div>
+</div>
+</div>
+
+{% endblock %}
+
+{% block footer %}
+    {% include 'footer.html' %}
+{% endblock %}

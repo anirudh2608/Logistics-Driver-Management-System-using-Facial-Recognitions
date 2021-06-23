@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %}Face Recognition {% endblock %}
+
+{% block content %}
+
+<div class="background2">
+
+{% include 'dispmsg.html' %}
+
+<div class="container-fluid">
+    <div class="faceRecog">
+        <div class="row">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h4 class="display-2" id="headings">Face Verification</h4>
+                </div>
+                <div class="panel-body">
+                    <p class="text-center" id="headings"><i> Confirm identity to see your dashboard</i><p></p>
+                    <form method="POST">
+                        <div class="col-md-12 mb-0">
+                            <div>
+                                <img class="mx-auto d-block" id="bg" src="{{ url_for('auth.videoFeed')}}">
+                            </div>       
+                            <p class="text-center" id="headings"><i> Please ensure that your face is captured with bright light on your face.</i><p></p>
+                        </div>
+                        <button type="submit" style="width: 100%;" class="btn btn-primary">Capture Face</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+{% endblock %}
+
+{% block footer %}
+    {% include 'footer.html' %}
+{% endblock %}

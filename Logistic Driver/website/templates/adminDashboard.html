@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% block title %}Admin Dashboard {% endblock %}
+
+{% block content %}
+
+<div class="background3">
+
+{% include 'dispmsg.html' %}
+
+<div class="container">
+<div class="container-fluid">
+    <div id="first-row">  
+        <br>
+        <br>
+        <br>
+        <br>
+        <div id="banner-content-mid" class="mx-auto d-block" style="font-size: calc(4px + 1vw);">
+           
+            <h4 class="display-4" id="headings" >Personal Details</h4><br>
+            <div class="row">
+            <div class="col-sm">
+                <label for="Name" id="headings" class="headings">Name</label>
+                <p class="text-center" id="headings" >{{session['name']}}</p>
+            </div>
+            <div class="col-sm">
+                <label for="Email" id="headings" class="headings">Email</label>
+                <p class="text-center" id="headings">{{session['email']}}</p>
+            </div>
+            <div class="col-sm">
+                <label for="Role" id="headings" class="headings">Role</label>
+                <p class="text-center" id="headings">Admin</p>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid" id="banner-content-bottom" style="width: auto;">
+    <div class="row">
+        <div class="col-md-4">
+            <a class="hover" style="text-decoration: none; " href="/driverApplications">
+            <div class="box-white">
+                <img class="img-fluid" src="static/images/drivericon.png">
+                <p class="text-center" id="headings">Driver <br>Applications</p>
+            </div>    
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a class="hover" style="text-decoration: none; " href="/manageOrder">
+            <div class="box-white">
+                <img src="static/images/ordermanager.png">
+                <p class="text-center" id="headings">Manage<br> Orders</p>
+            </div>
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a class="hover" style="text-decoration: none; " href="/fireDriver">
+            <div class="box-white">
+                <img src="static/images/ban.png">
+                <p class="text-center" id="headings">Fire<br> Drivers</p>
+            </div>
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <a class="hover" style="text-decoration: none; " href="/manageTrucks">
+            <div class="box-white">
+                <img src="static/images/truck.png">
+                <p class="text-center" id="headings">Manage <br>Trucks</p>
+            </div>
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a class="hover" style="text-decoration: none; " href="/driverLocation">
+            <div class="box-white">
+                <img src="static/images/loc.png">
+                <p class="text-center" id="headings">Driver <br>Locations</p>
+            </div>
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a class="hover" style="text-decoration: none; " href="/changePass">
+            <div class="box-white">
+                <img src="static/images/setting.png">
+                <p class="text-center" id="headings">Change Password</p>
+            </div>
+            </a>
+        </div>
+    </div>
+
+</div>
+<br>
+
+</div>
+</div>
+</div>
+
+{% endblock %}
+
+{% block footer %}
+    {% include 'footer.html' %}
+{% endblock %}

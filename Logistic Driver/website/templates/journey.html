@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}Driver Dashboard {% endblock %}
+
+{% block content %}
+
+<div style="background: url('static/images/trucklog2.jpg');padding: 0;
+text-align: center;
+color: #fff;background-size: cover;
+background-size: 100%;
+min-height: 950px;
+background-repeat: no-repeat;">
+
+{% include 'dispmsg.html' %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+        <div class="mapBox">
+            <img class="img-fluid" src = "{{ img }}">
+            <p class="text-center" id="headings" style="font-size: 30px;">Reached Destination?</p>
+            <form method="POST"><button type="submit" class="btn btn-primary" style="font-size: 20px;">End Journey</button></form>
+        </div>
+        </div>
+    </div>
+
+</div>
+
+</div>
+{% endblock %}
+
+{% block footer %}
+    {% include 'footer.html' %}
+{% endblock %}

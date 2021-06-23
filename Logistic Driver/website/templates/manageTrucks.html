@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% block title %}Manage Trucks {% endblock %}
+
+{% block content %}
+
+<div class="background2">
+
+{% include 'dispmsg.html' %}
+
+<div class="container-fluid">
+  
+    <div class="mx-auto d-block">
+        <div class="displayBox">
+            <table class="table" id="headings"  style="font-size: calc(4px + 1vw);">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Truck Number</th>
+                        <th scope="col">Driver Name</th>
+                        <th scope="col">Decision</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for truck in trucks %}
+                    <tr>
+                        <th scope="row">{{ truck.id }}</th>
+                        <td>{{ truck.truckNumber }}</td>
+                        {% for driver in truck.driver %}
+                        <td>{{ driver.name }}</td>
+                        {% endfor %}
+                        <td>
+                            <button type="button" class="btn btn-danger"  style="font-size: calc(4px + 1vw);" onclick="deleteTruck({{ truck.id }})" >Delete</button>
+                            
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <form method="POST">
+                <div class="form-row">
+                <div class="col-md-6 mb-1">
+                <label for="Truck Number" id="headings" style="font-size:calc(4px + 1vw);">Truck Number</label>
+                <input 
+                        type="text" 
+                        class="form-control" 
+                        name = "truckNo"
+                        placeholder="Truck Number" required>
+
+                </div>
+                <div class="col-md-6 mb-1">
+                <label for="Driver Id" id="headings" style="font-size: calc(4px + 1vw);">Driver Name</label>
+                <select 
+                        class="form-control" 
+                        name = "driverId"
+                        required>
+                        {% for d in driver %}
+                        <option value= "{{d.id}}">{{d.name}}</option>
+                        {% endfor %}
+                        </select>
+                </div>  
+                </div>
+                <br />
+                <div align="center">
+                  <button type="submit" class="btn btn-primary" style="font-size: calc(3px + 1vw);">Add Truck</button>
+                </div>
+              </form>
+        </div>
+
+    </div>
+</div>
+
+</div>
+
+{% endblock %}
+
+{% block footer %}
+    {% include 'footer.html' %}
+{% endblock %}

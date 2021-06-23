@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% block title %}Driver Location {% endblock %}
+
+{% block content %}
+
+<div class="background3">
+
+{% include 'dispmsg.html' %}
+
+<div class="container-fluid">
+ <br>
+ <br>
+ <br> 
+    <div class="mx-auto d-block">
+        <div class="row">
+        <div class="col-md-6">
+        <div class="displayBox">
+            <table class="table" id="headings"  style="font-size: calc(4px + 1vw);">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Checkpoint</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for driver in drivers %}
+                    <tr>
+                        <th scope="row">{{ driver.id }}</th>
+                        <td>{{ driver.name }}</td>
+                        <td>
+                            {% for cp in checkpoints %}
+                                {% if driver.checkpoint == cp.id %}
+                                    {{ cp.name }}
+                                {% endif %}
+                            {% endfor %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        </div>
+        <div class="col-md-6">
+        <div class="displayBox2">
+            <p class="text-center" id="headings"><i> Existing Checkpoints</i></p>
+            <table class="table" id="headings"  style="font-size: calc(4px + 1vw);">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Location</th>
+                        <th scope="col">Decision</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for cp in checkpoints %}
+                    <tr>
+                        <th scope="row">{{ cp.id }}</th>
+                        <td>{{ cp.location }}</td>
+                        <td>
+                            <button type="button" class="btn btn-danger"  style="font-size: calc(3px + 1vw);" onclick="deleteCheckpoint({{ cp.id }})" >Delete</button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        </div>
+        </div>
+        <div class="row">
+        <div class="col-md-6">
+        <div class="displayBox2">
+            <form method="POST">
+                <label for="Checkpoint" id="headings" style="font-size: calc(4px + 1vw);">Add New Checkpoint</label>
+                <input 
+                        type="text" 
+                        class="form-control" 
+                        name = "checkpoint"
+                        placeholder="Checkpoint Name" required>
+
+                <br />
+                <div align="center">
+                  <button type="submit" class="btn btn-primary" style="font-size: calc(3px + 1vw);">Add Checkpoint</button>
+                </div>
+              </form>
+        </div>
+        </div>
+        </div>
+    </div>
+</div>
+</div>
+
+{% endblock %}
+
+{% block footer %}
+    {% include 'footer.html' %}
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}Waiting Lobby {% endblock %}
+
+{% block content %}
+
+<div class="background3">
+
+{% include 'dispmsg.html' %}
+<div class="container">
+<div class="container-fluid">
+    <br>
+        <br>
+        <br>
+        <br>
+    <div id="banner-content-mid" class="mx-auto d-block">
+        <h4 class="display-4" id="headings" >
+            {% if session['waiting'] == 0 %}
+            Your application is under review. Please wait for the admin to review it!
+            {% elif session['waiting'] == 2 %}
+            Your application is rejected!
+            {% endif %}
+        </h4>
+
+    </div>
+</div>
+</div>
+
+</div>
+{% endblock %}
+
+{% block footer %}
+    {% include 'footer.html' %}
+{% endblock %}

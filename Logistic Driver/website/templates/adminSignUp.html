@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% block title %}Admin Signup {% endblock %}
+
+{% block content %}
+
+<div class="background4">
+
+{% include 'dispmsg.html' %}
+
+<div class="container-fluid">
+    <div class="loginBox first-row">
+    <div class="row">
+        <div class="panel panel-primary" >
+            <div class="panel-heading">
+                <h4 class="display-2" id="headings">SIGN UP</h4>
+            </div>
+            <div class="panel-body">
+                <p class="text-center" id="headings"><i> Signup to create an account</i><p>
+            <form method="POST">
+                <div class="form-row">
+                    <div class="col-md-4 mb-3" >
+                        <label for="First Name" id="headings">First name</label>
+                        <input 
+                        type="text" 
+                        class="form-control" 
+                        name = "firstName"
+                        placeholder="First name" required>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="Last Name" id="headings">Last name</label>
+                        <input 
+                        type="text" 
+                        class="form-control" 
+                        name = "lastName"
+                        placeholder="Last Name" required>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="email" id="headings">Email Address</label>
+                        <input
+                            type="email"
+                            class="form-control"
+                            id="email"
+                            name="email"
+                            placeholder="Enter email" 
+                            required
+                        />
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                <div class="col-md-6 mb-3">
+                <label for="password" id="headings">Password</label>
+                <input
+                    type="password"
+                    class="form-control"
+                    id="password"
+                    name="password"
+                    placeholder="Enter password"
+                />
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="password" id="headings">Confirm Password</label>
+                    <input
+                        type="password"
+                        class="form-control"
+                        id="password"
+                        name="confirmPassword"
+                        placeholder="Enter password again"
+                    />
+                    </div>
+                </div>
+                <div class="col-md-12 mb-0">
+                    <p class="text-center" id="headings"><i> Identity</i><p></p>
+                    <img id="bg" src="{{ url_for('auth.videoFeed')}}">
+                    <p class="text-center" id="headings"><i> Please ensure that your face is captured with bright light on your face.</i><p></p>
+                    
+                </div>
+
+                <button type="submit" style="width: 100%;" class="btn btn-primary">Sign up</button>
+                <div class="panel-footer" id="headings"><p>Already have an account? <a href="/login">Login</a></p></div>
+            </form>
+            
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    
+{% endblock %}
+
+{% block footer %}
+    {% include 'footer.html' %}
+{% endblock %}
